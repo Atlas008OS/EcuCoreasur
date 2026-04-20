@@ -28,6 +28,9 @@
   <style>
     @media (max-width: 768px) {
       .nw-grid-2col { grid-template-columns: 1fr !important; }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .nw-grid-2col { grid-template-columns: repeat(2,1fr) !important; }
+      }
     }
   </style>
 </head>
@@ -441,7 +444,7 @@
       <!-- Cobertura en medios (fusionada desde sección noticias) -->
       <h3 style="font-size:18px;font-weight:500;margin-top:2.5rem;margin-bottom:1rem;color:var(--color-text-primary)">Cobertura en medios</h3>
 
-      <div class="nw-grid nw-grid-2col" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      <div class="nw-grid nw-grid-2col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
         <div class="nw-card">
           <div style="height:180px;overflow:hidden;border-radius:8px 8px 0 0;position:relative;">
             <img src="images/imagen1.avif" alt="Lanzamiento Cámara Ecuatoriano Coreana" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
@@ -459,7 +462,7 @@
         </div>
 
         <div class="nw-card">
-          <div class="nw-img nw-img-2" style="height:140px;"></div>
+          <div class="nw-img nw-img-2" style="height:180px;"></div>
           <div class="nw-body" style="font-size:13px;">
             <span class="nw-tag">El Universo</span>
             <h3 style="font-size:15px;">Queremos duplicar el intercambio comercial en menos de cinco años</h3>
@@ -472,7 +475,7 @@
         </div>
 
         <div class="nw-card">
-          <div class="nw-img nw-img-3" style="height:140px;"></div>
+          <div class="nw-img nw-img-3" style="height:180px;"></div>
           <div class="nw-body" style="font-size:13px;">
             <span class="nw-tag">Primicias</span>
             <h3 style="font-size:15px;">Nace la Cámara de Comercio Ecuatoriano Coreana con diez socios fundadores</h3>
@@ -485,7 +488,7 @@
         </div>
 
         <div class="nw-card">
-          <div class="nw-img nw-img-1" style="height:140px;"></div>
+          <div class="nw-img nw-img-1" style="height:180px;"></div>
           <div class="nw-body" style="font-size:13px;">
             <span class="nw-tag">El Oriente</span>
             <h3 style="font-size:15px;">Nueva Cámara busca potenciar comercio e inversión con Corea del Sur</h3>
