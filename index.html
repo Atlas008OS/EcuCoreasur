@@ -604,9 +604,7 @@
         </div>
 
         <div class="ct-form-wrap">
-          <form id="contactForm" class="ct-form" action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID" method="POST">
-            <input type="hidden" name="_replyto" value="presidencia@ecuatorianacoreana.com" />
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde ecuatorianacoreana.com" />
+          <form id="contactForm" class="ct-form">
             <div class="cf-row">
               <div class="cf-group">
                 <label for="nombre">Nombre completo</label>
@@ -659,18 +657,27 @@
 
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: 'POST', body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      }
+      const nombre  = document.getElementById('nombre').value;
+      const empresa = document.getElementById('empresa').value;
+      const email   = document.getElementById('email').value;
+      const asunto  = document.getElementById('asunto').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      const subject = encodeURIComponent('Nuevo mensaje desde ecuatorianacoreana.com' + (asunto ? ' — ' + asunto : ''));
+      const body = encodeURIComponent(
+        'Nombre: ' + nombre + '\n' +
+        'Empresa: ' + empresa + '\n' +
+        'Correo: ' + email + '\n' +
+        'Asunto: ' + asunto + '\n\n' +
+        mensaje
+      );
+
+      window.location.href = 'mailto:presidencia@ecuatorianacoreana.com?subject=' + subject + '&body=' + body;
+
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
     });
   </script>
 </body>
