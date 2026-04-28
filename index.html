@@ -112,9 +112,41 @@
     </div>
   </section>
 
-  <div style="text-align:center;padding:6px 0 2px;background:var(--dark,#0a0a14);">
-    <span style="font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.08em;font-family:monospace;">TM 21/05/2026</span>
-  </div>
+  <!-- ═══════════════════════════════════════
+       CUENTA REGRESIVA
+  ═══════════════════════════════════════ -->
+  <section class="countdown" id="countdown">
+    <div class="cd-glow"></div>
+    <div class="wrap">
+      <div class="cd-header">
+        <span class="sec-tag gold">Próximo Evento</span>
+        <h2 class="cd-title">Cuenta Regresiva</h2>
+        <p class="cd-subtitle">21 de mayo de 2026 &nbsp;·&nbsp; 15:30</p>
+      </div>
+      <div class="cd-blocks" id="cd-blocks">
+        <div class="cd-block">
+          <div class="cd-num" id="cd-dias">--</div>
+          <div class="cd-label">Días</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-horas">--</div>
+          <div class="cd-label">Horas</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-minutos">--</div>
+          <div class="cd-label">Minutos</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-segundos">--</div>
+          <div class="cd-label">Segundos</div>
+        </div>
+      </div>
+      <p class="cd-expired" id="cd-expired" style="display:none;">¡El evento ha comenzado!</p>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════
        ALIADOS (movido después del hero)

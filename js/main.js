@@ -72,6 +72,54 @@
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+  /* ── Countdown timer — 21 May 2026 15:30 ── */
+  (function () {
+    const target = new Date('2026-05-21T15:30:00');
+    const elDias     = document.getElementById('cd-dias');
+    const elHoras    = document.getElementById('cd-horas');
+    const elMinutos  = document.getElementById('cd-minutos');
+    const elSegundos = document.getElementById('cd-segundos');
+    const elBlocks   = document.getElementById('cd-blocks');
+    const elExpired  = document.getElementById('cd-expired');
+
+    if (!elDias) return;
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        elBlocks.style.display  = 'none';
+        elExpired.style.display = 'block';
+        return;
+      }
+      const totalSecs = Math.floor(diff / 1000);
+      const dias    = Math.floor(totalSecs / 86400);
+      const horas   = Math.floor((totalSecs % 86400) / 3600);
+      const minutos = Math.floor((totalSecs % 3600) / 60);
+      const segs    = totalSecs % 60;
+
+      function update(el, val) {
+        const str = pad(val);
+        if (el.textContent !== str) {
+          el.textContent = str;
+          el.classList.remove('tick');
+          void el.offsetWidth;
+          el.classList.add('tick');
+          setTimeout(() => el.classList.remove('tick'), 150);
+        }
+      }
+
+      update(elDias,    dias);
+      update(elHoras,   horas);
+      update(elMinutos, minutos);
+      update(elSegundos, segs);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
   /* ── Contact form ── */
   const form = document.getElementById('contactForm');
   if (form) {
